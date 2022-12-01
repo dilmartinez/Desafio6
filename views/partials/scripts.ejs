@@ -6,9 +6,11 @@
     const socket = io.connect()
 </script>
 <script>
+
+   
     function render(data) {
         const html = data.map(item => {
-            return (`<div> <strong>${item.author}</strong> <span class="fecha">${new Date().toLocaleDateString("es-ES")} ${new Date().toLocaleTimeString()}</span> :<em>${item.text}</em></div>`)
+            return (`<div> <strong style="color:blue">${item.author}</strong> <span style="color:brown" class="fecha">${new Date().toLocaleDateString("es-ES")} ${new Date().toLocaleTimeString()}</span> :<em style="color:green">${item.text}</em></div>`)
         }).join(' ')
         document.getElementById('message').innerHTML = html
     }

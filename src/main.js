@@ -14,13 +14,12 @@ const io = new IO(httpServer);
 // agrego middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
 app.set("views", "./views/pages");
 app.set("view engine", "ejs");
 
 //--------------------------------------------
 // configuro el socket mensajes y productos
-const messages = [{ author: "Juan", text: "Hola, que tal" }];
+const messages = [];
 
 const products = []
 
