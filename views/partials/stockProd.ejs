@@ -1,0 +1,26 @@
+<% if(products.length>0){ %>
+    <table class="table m-5">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(prod=> { %>
+                <tr>
+                    <td>
+                        <%= prod.nombre %>
+                    </td>
+                    <td>
+                        $<%= prod.precio %>
+                    </td>
+                    <td><img src=<%=prod.img %> alt="" width=50px height=50px ></td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+    <% }else if(products.length==0){ %>
+        <h3 class=" m-5 alert alert-warning">No hay productos cargados.</h3>
+        <% } %>

@@ -1,0 +1,32 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+<script>
+    const socket = io.connect()
+</script>
+<script>
+    function render(data) {
+        const html = data.map(item => {
+            return (`<div> <strong>${item.author}</strong> <span class="fecha">${new Date().toLocaleDateString("es-ES")} ${new Date().toLocaleTimeString()}</span> :<em>${item.text}</em></div>`)
+        }).join(' ')
+        document.getElementById('message').innerHTML = html
+    }
+
+    //parte chat
+
+    function addMessage() {
+        const authorName = document.getElementById('author').value
+        const textMsn = document.getElementById('text').value
+        const mensaje = {
+            author: authorName,
+            text: textMsn
+        }
+        document.getElementById('text').value = ''
+        socket.emit('new-message', mensaje)
+        return false
+    }
+    socket.on('message', data => {
+        render(data)
+    })
+</script>

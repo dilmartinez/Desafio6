@@ -1,0 +1,19 @@
+<div class="container my-3 d-flex flex-column ">
+    <form action="/productos" method="post" class=" p-1 rounded">
+        <div class="form-floating mb-1">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto" name="nombre" />
+        </div>
+        <div class="form-floating mb-1">
+            <label for="number">Precio</label>
+            <input type="number" class="form-control" id="precio" placeholder="Precio del producto"
+                name="precio" />
+            </div>
+            <div class="form-floating mb-1">
+                <label for="text">Imagen</label>
+            <input type="text" class="form-control" id="img"
+                placeholder="Direccion de la foto del producto" name="img" />
+        </div>
+        <button type="submit" class="btn btn-primary"  >CARGAR</button>
+    </form>
+</div>
